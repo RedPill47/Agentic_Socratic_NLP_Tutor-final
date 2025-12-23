@@ -138,7 +138,9 @@ pytest tests/e2e/
 
 ## License
 
-[Your License Here]
+This project is licensed under a Proprietary License. See [LICENSE](LICENSE) for details.
+
+**Commercial use is prohibited without explicit written permission from the copyright holder.**
 
 ---
 
