@@ -1,0 +1,150 @@
+communication_task:
+  description: >
+    Student message: "{student_input}"
+
+    Your task is to welcome the student and help them choose an appropriate NLP topic to study.
+
+    STEP 1 - CHECK PROGRESS:
+    Use the UserProgressTracker tool with action='read' to check the student's learning history.
+
+    STEP 2 - RESPOND APPROPRIATELY:
+
+    If NEW STUDENT (is_new_user: true):
+    - Welcome them warmly
+    - Ask what they want to learn or suggest starting with fundamentals (tokenization, text preprocessing)
+    - If they express interest in a topic, confirm it and prepare to pass it to the Orchestrator
+
+    If RETURNING STUDENT (has completed_topics):
+    - Acknowledge their progress
+    - Suggest continuing with a related topic or let them choose
+    - Review what they've already completed
+
+    STEP 3 - TOPIC SELECTION:
+    Once a topic is chosen:
+    - Confirm the topic with the student
+    - Update their progress using UserProgressTracker with action='write'
+    - Output the chosen topic clearly for the Orchestrator: "TOPIC SELECTED: [topic_name]"
+
+    IMPORTANT:
+    - Keep your response brief (2-3 sentences)
+    - Be encouraging and supportive
+    - Focus on helping them choose ONE topic to study
+    - Make sure to output "TOPIC SELECTED: [topic_name]" when a topic is chosen
+
+  expected_output: >
+    A friendly response (2-3 sentences) that either:
+    1. Welcomes and asks what they want to learn, OR
+    2. Acknowledges their choice and outputs "TOPIC SELECTED: [topic_name]"
+
+  agent: communicator
+
+retrieval_task:
+  description: >
+    PREVIOUS CONTEXT from Communicator: {previous_context}
+
+    Your task is to retrieve relevant educational content from the knowledge base.
+
+    STEP 1 - EXTRACT TOPIC:
+    Look for "TOPIC SELECTED: [topic_name]" in the previous context.
+    If no clear topic is found, extract the main NLP concept mentioned.
+
+    STEP 2 - RETRIEVE CONTENT:
+    Use the RetrieveFromKnowledgeBase tool with the topic as the query.
+    Search for comprehensive educational material about this topic.
+
+    STEP 3 - FORMAT OUTPUT:
+    Structure your output as:
+
+    TOPIC: [topic_name]
+
+    RETRIEVED CONTENT:
+    [The content retrieved from the knowledge base with source citations]
+
+    LEARNING LEVEL: [beginner/intermediate/advanced based on context]
+
+    IMPORTANT:
+    - Use the exact topic name in your retrieval query
+    - Ensure the content is complete and includes examples
+    - Include all source citations (page numbers, slide titles)
+    - Don't summarize - pass the full retrieved content to the Tutor
+
+  expected_output: >
+    A structured output containing:
+    - TOPIC: The selected topic name
+    - RETRIEVED CONTENT: Full educational content with source citations
+    - LEARNING LEVEL: The student's current level
+
+  agent: orchestrator
+  context:
+    - communication_task
+
+tutoring_task:
+  description: >
+    Student's latest input: "{student_input}"
+
+    RETRIEVED EDUCATIONAL CONTENT: {previous_context}
+
+    LEARNING STYLE: {learning_style} (if available)
+    TEACHING ADAPTATION: {teaching_adaptation} (if available)
+
+    Your task is to teach the student using the Socratic method, guiding them to discover concepts through questions.
+    
+    IMPORTANT - LEARNING STYLE ADAPTATION:
+    If learning_style is provided, adapt your teaching approach:
+    - VISUAL: Use diagrams, examples, visual representations. Say "imagine", "picture this", "visualize"
+    - AUDITORY: Focus on explanations, discussions, verbal learning. Use analogies and conversational style
+    - KINESTHETIC: Emphasize exercises, practice, hands-on. Say "try this", "practice", "do it yourself"
+    - READING: Use text-based content, written explanations. Provide structured, written responses
+
+    STEP 1 - REVIEW CONTEXT:
+    - Read the retrieved content from the Orchestrator carefully
+    - Understand the core concepts you need to teach
+    - Note the learning level if provided
+
+    STEP 2 - DETERMINE INTERACTION TYPE:
+
+    A) IF STARTING NEW TOPIC (you see "TOPIC SELECTED" or "RETRIEVED CONTENT"):
+       - Review the retrieved content
+       - Identify the most fundamental concept to start with
+       - Formulate an opening question that relates to the student's experience
+       - Example: "Before we explore tokenization, think about how you naturally read text. Do you see one continuous string or something else?"
+
+    B) IF RESPONDING TO STUDENT'S ANSWER:
+       - Evaluate their response against the retrieved content
+       - If CORRECT: Praise + Ask deeper question about the next concept
+       - If PARTIALLY CORRECT: Acknowledge + Provide hint + Refine question
+       - If INCORRECT: Give strategic hint + Ask simpler question
+       - Always build on their response
+
+    STEP 3 - CRAFT YOUR RESPONSE:
+    - Maximum 3-4 sentences
+    - ONE clear question
+    - Use examples from retrieved content for accuracy
+    - Use real-world analogies when helpful
+    - NEVER give direct answers or explanations
+
+    SOCRATIC QUESTIONING FRAMEWORK:
+    1. Start with concrete examples ("When you...")
+    2. Ask about observations ("What do you notice...")
+    3. Probe reasoning ("Why do you think...")
+    4. Explore implications ("What would happen if...")
+    5. Build connections ("How does this relate to...")
+
+    REMEMBER:
+    - Guide discovery, don't lecture
+    - One concept at a time
+    - Build on their answers
+    - Use retrieved content for accuracy
+    - The goal is understanding through self-discovery
+
+  expected_output: >
+    A Socratic teaching response (3-4 sentences) containing:
+    1. Brief acknowledgment of their input (if applicable)
+    2. Context or framing (if starting new topic)
+    3. ONE clear, thought-provoking question that guides them toward discovering the concept
+    4. Optional hint or real-world analogy if needed
+
+  agent: tutor
+  context:
+    - communication_task
+    - retrieval_task

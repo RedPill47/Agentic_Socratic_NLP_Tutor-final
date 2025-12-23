@@ -1,0 +1,44 @@
+{
+  "name": "nlp-tutor-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "predev": "node scripts/sync-env.js",
+    "prebuild": "node scripts/sync-env.js",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "sync-env": "node scripts/sync-env.js"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.8.0",
+    "@supabase/supabase-js": "^2.87.1",
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "autoprefixer": "^10.4.0",
+    "clsx": "^2.0.0",
+    "date-fns": "^2.30.0",
+    "lucide-react": "^0.294.0",
+    "next": "^14.2.0",
+    "postcss": "^8.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^9.1.0",
+    "recharts": "^2.10.0",
+    "remark-gfm": "^4.0.1",
+    "supabase": "^2.66.0",
+    "tailwind-merge": "^2.1.0",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5.3.0"
+  },
+  "devDependencies": {
+    "dotenv": "^17.2.3",
+    "eslint": "^8.54.0",
+    "eslint-config-next": "^14.0.0"
+  },
+  "overrides": {
+    "glob": "^10.4.6"
+  }
+}

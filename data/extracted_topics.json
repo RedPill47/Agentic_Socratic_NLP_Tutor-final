@@ -1,0 +1,136 @@
+{
+  "added": [
+    {
+      "topic": "Backoff",
+      "difficulty": "intermediate",
+      "topic_area": "Language Modeling",
+      "description": "A technique in language modeling where a lower-order model is used when the higher-order model encounters zero probabilities.",
+      "keywords": [
+        "language model",
+        "probability",
+        "N-grams",
+        "NLP"
+      ],
+      "learning_time_minutes": 60,
+      "prerequisites": [
+        "Bag of Words",
+        "N-grams",
+        "Context-Free Grammars",
+        "Back-off Language Model"
+      ]
+    },
+    {
+      "topic": "Clitic",
+      "difficulty": "intermediate",
+      "topic_area": "Linguistics",
+      "description": "A clitic is a part of a word that cannot stand alone and must be attached to another word, often seen in contractions across various languages.",
+      "keywords": [
+        "clitic",
+        "contraction",
+        "linguistics",
+        "tokenization"
+      ],
+      "learning_time_minutes": 60,
+      "prerequisites": []
+    },
+    {
+      "topic": "Hidden Markov Models (HMM)",
+      "difficulty": "intermediate",
+      "topic_area": "Sequence Models",
+      "description": "HMMs are statistical models used for sequence prediction where the system is assumed to be a Markov process with hidden states.",
+      "keywords": [
+        "Hidden Markov Model",
+        "HMM",
+        "tagging",
+        "maximum likelihood estimation"
+      ],
+      "learning_time_minutes": 60,
+      "prerequisites": [
+        "Conditional Random Fields (CRF) Tagging",
+        "Sequence Modeling",
+        "Context-Free Grammars",
+        "Dynamic Programming"
+      ]
+    },
+    {
+      "topic": "Interpolation",
+      "difficulty": "intermediate",
+      "topic_area": "Language Modeling",
+      "description": "A method that combines multiple models to improve the prediction of the next word in a sequence by weighing their contributions.",
+      "keywords": [
+        "combination",
+        "prediction",
+        "language model",
+        "NLP"
+      ],
+      "learning_time_minutes": 60,
+      "prerequisites": [
+        "Bag of Words",
+        "N-grams",
+        "Encoder-Decoder Models",
+        "Attention Mechanisms",
+        "Back-off Language Model"
+      ]
+    },
+    {
+      "topic": "Laplace Smoothing",
+      "difficulty": "intermediate",
+      "topic_area": "Language Modeling",
+      "description": "A technique used to handle the problem of zero probabilities in language models by adding a small constant to frequency counts.",
+      "keywords": [
+        "smoothing",
+        "probability",
+        "language model",
+        "NLP"
+      ],
+      "learning_time_minutes": 60,
+      "prerequisites": [
+        "Bag of Words",
+        "N-grams",
+        "Evaluating Language Models",
+        "Back-off Language Model"
+      ]
+    },
+    {
+      "topic": "Pretrained Embeddings",
+      "difficulty": "intermediate",
+      "topic_area": "Text Representations",
+      "description": "Pretrained embeddings are vector representations of words that have been trained on large corpora, allowing models to leverage semantic relationships without starting from scratch.",
+      "keywords": [
+        "pretrained embeddings",
+        "word vectors",
+        "semantic relationships",
+        "transfer learning",
+        "NLP"
+      ],
+      "learning_time_minutes": 60,
+      "prerequisites": [
+        "Neural Language Models",
+        "Contextual Embedding",
+        "Embedding Matrix",
+        "Feature Extraction",
+        "Contextualized Embeddings"
+      ]
+    },
+    {
+      "topic": "The XOR Problem",
+      "difficulty": "intermediate",
+      "topic_area": "Neural Network Theory",
+      "description": "The XOR problem is a classic example in neural network theory that illustrates the limitations of simple linear models and the necessity of hidden layers for solving non-linear problems.",
+      "keywords": [
+        "XOR problem",
+        "non-linear",
+        "neural networks",
+        "hidden layers",
+        "classification"
+      ],
+      "learning_time_minutes": 60,
+      "prerequisites": [
+        "Neural Networks",
+        "Feedforward Neural Network"
+      ]
+    }
+  ],
+  "failed": [],
+  "skipped": []
+}

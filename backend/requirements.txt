@@ -1,0 +1,27 @@
+# FastAPI Backend Dependencies
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+
+# Supabase and Auth
+supabase>=2.0.0
+python-jose[cryptography]>=3.3.0
+httpx>=0.25.0
+
+# Core LLM / Agent stack
+crewai[tools]>=0.100.0,<1.0.0
+openai>=1.0.0
+tiktoken>=0.5.0
+
+# LangChain + Vector store
+langchain>=0.1.0
+langchain-community>=0.0.20
+langchain-chroma>=0.1.0
+chromadb>=0.4.0
+sentence-transformers>=2.2.0
+langchain-huggingface>=0.0.1
+
+# Utilities
+orjson>=3.9.0
+tenacity>=8.2.3
