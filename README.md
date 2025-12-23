@@ -10,11 +10,11 @@ An intelligent, adaptive AI tutoring system that teaches Natural Language Proces
 
 *"What if an AI could teach the way Socrates did?"*
 
-This project didn't start with the architecture you see today. It began with a vision, grew into a complex multi-agent system that took minutes to respond, and then—through failure and hard-won lessons—evolved into something simpler, faster, and actually usable.
+This project didn't start with the architecture you see today. It began with a vision, grew into a complex multi-agent system that took minutes to respond, and then, through failure and hard-won lessons, evolved into something simpler, faster, and actually usable.
 
 **Want to know how we learned that sophistication isn't the same as quality?** 
 
-👉 **[Read THE_JOURNEY.md](THE_JOURNEY.md)** — A narrative of failure, simplification, and the discovery that the best systems solve the problem in the simplest way possible.
+👉 **[Read THE_JOURNEY.md](THE_JOURNEY.md)** Our narrative of failure, simplification, and the discovery that the best systems solve the problem in the simplest way possible.
 
 *"The best architecture isn't the most sophisticated. It's the one that solves the actual problem."*
 
@@ -138,7 +138,7 @@ pytest tests/e2e/
 
 ## License
 
-[Your License Here]
+
 
 ---
 
