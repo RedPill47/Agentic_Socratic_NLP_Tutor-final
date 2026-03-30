@@ -2,6 +2,8 @@
 
 **Final Demo Version**
 
+**[Watch the DEMO](https://youtu.be/HD77UvbC7NQ)**
+
 An intelligent, adaptive AI tutoring system that teaches Natural Language Processing (NLP) concepts through Socratic dialogue. Built with FastAPI, Next.js, and CrewAI.
 
 ---
